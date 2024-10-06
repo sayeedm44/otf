@@ -15,29 +15,39 @@ document.addEventListener("DOMContentLoaded", function () {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
 
-        // Add the title
-        doc.setFontSize(20);
-        doc.text("Brio Elevators OTF Form", 14, 22);
+        // Load the logo image
+        const logo = new Image();
+        logo.src = 'logo.png'; // Path to your logo file
 
-        // Add customer details
-        doc.setFontSize(12);
-        doc.text("Customer Details", 14, 35);
+        // Wait for the image to load before adding it to the PDF
+        logo.onload = function () {
+            // Add the logo to the PDF
+            doc.addImage(logo, 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
 
-        // Check if autoTable is available
-        if (typeof doc.autoTable === "function") {
-            doc.autoTable({
-                head: [['Field', 'Value']],
-                body: [
-                    ['Sales Person', salesPerson],
-                    ['Team Leader Involved', teamLeader],
-                ],
-                startY: 40,
-            });
-        } else {
-            console.error("autoTable is not a function. Please check jsPDF and autoTable library.");
-        }
+            // Add the title
+            doc.setFontSize(20);
+            doc.text("Brio Elevators OTF Form", 14, 40); // Adjust Y position after logo
 
-        // Save the PDF
-        doc.save("Brio_Elevators_OTF_Form.pdf");
+            // Add customer details
+            doc.setFontSize(12);
+            doc.text("Customer Details", 14, 55); // Adjust Y position after title
+
+            // Check if autoTable is available
+            if (typeof doc.autoTable === "function") {
+                doc.autoTable({
+                    head: [['Field', 'Value']],
+                    body: [
+                        ['Sales Person', salesPerson],
+                        ['Team Leader Involved', teamLeader],
+                    ],
+                    startY: 60, // Adjust start position to avoid overlapping
+                });
+            } else {
+                console.error("autoTable is not a function. Please check jsPDF and autoTable library.");
+            }
+
+            // Save the PDF
+            doc.save("Brio_Elevators_OTF_Form.pdf");
+        };
     });
 });
