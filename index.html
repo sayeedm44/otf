@@ -3,34 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elevator Details Form</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Elevator Form</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.10/jspdf.plugin.autotable.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Elevator Details Form</h1>
-        <form id="elevatorForm">
-            <label for="elevatorType">Elevator Type:</label>
-            <select id="elevatorType" required>
-                <option value="">Select Type</option>
-                <option value="Home Elevator">Home Elevator</option>
-                <option value="Hydraulic Elevator">Hydraulic Elevator</option>
-                <option value="MRL Elevator">MRL Elevator</option>
-                <option value="MRL with Two-Side Mechanism">MRL with Two-Side Mechanism</option>
-            </select>
 
-            <label for="brickWalls">Number of Brick Walls:</label>
-            <select id="brickWalls" required>
-                <option value="">Select Number</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+    <h1>Elevator Details Form</h1>
+    <form id="elevatorForm">
+        <h2>Customer Details</h2>
+        <table>
+            <tr>
+                <th>Sales Person</th>
+                <td>
+                    <select id="salesPerson">
+                        <option value="Mallesh Naidu">Mallesh Naidu</option>
+                        <option value="Ibrahim Ayub">Ibrahim Ayub</option>
+                        <option value="Nandhini Nath">Nandhini Nath</option>
+                        <option value="Venkatesh J">Venkatesh J</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Team Leader Involved</th>
+                <td>
+                    <select id="teamLeader">
+                        <option value="Afash">Afash</option>
+                        <option value="Venkatesh">Venkatesh</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">Download as PDF</button>
+    </form>
 
-            <button type="submit">Download as PDF</button>
-        </form>
-    </div>
     <script src="script.js"></script>
 </body>
 </html>
