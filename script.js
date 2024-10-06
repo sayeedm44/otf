@@ -1,8 +1,8 @@
 document.getElementById('elevatorForm').addEventListener('submit', function(e) {
     e.preventDefault(); // Prevent form submission
     
-    const elevatorType = document.getElementById('elevatorType').value;
-    const brickWalls = document.getElementById('brickWalls').value;
+    const salesPerson = document.getElementById('salesPerson').value;
+    const teamLeader = document.getElementById('teamLeader').value;
 
     // Create a new PDF instance
     const { jsPDF } = window.jspdf;
@@ -26,10 +26,18 @@ document.getElementById('elevatorForm').addEventListener('submit', function(e) {
         // Add the logo to the top left
         doc.addImage(img, 'PNG', marginX, marginY, logoWidth, logoHeight);
 
-        // Add the form content below the logo
+        // Add heading for Customer Details
+        doc.setFontSize(16);
+        doc.text('Customer Details', marginX, logoHeight + marginY + 20);
+
+        // Add table
         doc.setFontSize(12);
-        doc.text(20, 60, `Elevator Type: ${elevatorType}`);
-        doc.text(20, 70, `Number of Brick Walls: ${brickWalls}`);
+        doc.autoTable({
+            head: [['Sales Person', 'Team Leader Involved']],
+            body: [[salesPerson, teamLeader]],
+            startY: logoHeight + marginY + 30,
+            theme: 'grid'
+        });
 
         // Save the PDF
         doc.save('elevator_details.pdf');
