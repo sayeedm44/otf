@@ -1,49 +1,30 @@
-document.getElementById('elevatorForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form submission
-    
-    const salesPerson = document.getElementById('salesPerson').value;
-    const teamLeader = document.getElementById('teamLeader').value;
+document.getElementById("elevatorForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission
 
-    // Create a new PDF instance
+    // Get the values from the form
+    const salesPerson = document.getElementById("salesPerson").value;
+    const teamLeader = document.getElementById("teamLeader").value;
+
+    // Create a new jsPDF instance
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Path to the logo image
-    const logoUrl = 'logo.png'; // Path to the logo image
+    // Add the title
+    doc.setFontSize(20);
+    doc.text("Brio Elevators OTF Form", 14, 22);
 
-    // Load the logo image
-    const img = new Image();
-    img.crossOrigin = "anonymous"; // Allow cross-origin loading
-    img.src = logoUrl;
+    // Add customer details
+    doc.setFontSize(12);
+    doc.text("Customer Details", 14, 35);
+    doc.autoTable({
+        head: [['Field', 'Value']],
+        body: [
+            ['Sales Person', salesPerson],
+            ['Team Leader Involved', teamLeader],
+        ],
+        startY: 40,
+    });
 
-    img.onload = function () {
-        // Adjust the position and size of the logo (top-left with margin)
-        const marginX = 10; // X margin
-        const marginY = 10;  // Y margin
-        const logoWidth = 50; // Adjust width
-        const logoHeight = 25; // Adjust height
-
-        // Add the logo to the top left
-        doc.addImage(img, 'PNG', marginX, marginY, logoWidth, logoHeight);
-
-        // Add heading for Customer Details
-        doc.setFontSize(16);
-        doc.text('Customer Details', marginX, logoHeight + marginY + 20);
-
-        // Add table
-        doc.setFontSize(12);
-        doc.autoTable({
-            head: [['Sales Person', 'Team Leader Involved']],
-            body: [[salesPerson, teamLeader]],
-            startY: logoHeight + marginY + 30,
-            theme: 'grid'
-        });
-
-        // Save the PDF
-        doc.save('elevator_details.pdf');
-    };
-
-    img.onerror = function () {
-        console.error('Failed to load the logo image.');
-    };
+    // Save the PDF
+    doc.save("Brio_Elevators_OTF_Form.pdf");
 });
