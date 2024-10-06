@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elevator Details Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Elevator Details Form</h1>
+        <form id="elevatorForm">
+            <label for="elevatorType">Elevator Type:</label>
+            <select id="elevatorType" required>
+                <option value="">Select Type</option>
+                <option value="Home Elevator">Home Elevator</option>
+                <option value="Hydraulic Elevator">Hydraulic Elevator</option>
+                <option value="MRL Elevator">MRL Elevator</option>
+                <option value="MRL with Two-Side Mechanism">MRL with Two-Side Mechanism</option>
+            </select>
+
+            <label for="brickWalls">Number of Brick Walls:</label>
+            <select id="brickWalls" required>
+                <option value="">Select Number</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button type="submit">Download as PDF</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
