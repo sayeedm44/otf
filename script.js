@@ -17,13 +17,13 @@ document.getElementById('elevatorForm').addEventListener('submit', function(e) {
     img.src = logoUrl;
 
     img.onload = function () {
-        // Adjust the position and size of the logo (top-right with margin)
-        const marginX = 150; // X margin
+        // Adjust the position and size of the logo (top-left with margin)
+        const marginX = 10; // X margin
         const marginY = 10;  // Y margin
         const logoWidth = 50; // Adjust width
         const logoHeight = 25; // Adjust height
 
-        // Add the logo to the top right
+        // Add the logo to the top left
         doc.addImage(img, 'PNG', marginX, marginY, logoWidth, logoHeight);
 
         // Add the form content below the logo
