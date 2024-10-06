@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const salesPerson = document.getElementById("salesPerson").value;
         const teamLeader = document.getElementById("teamLeader").value;
 
+        // Debugging: Log the values to the console
+        console.log("Sales Person:", salesPerson);
+        console.log("Team Leader Involved:", teamLeader);
+
         // Create a new jsPDF instance
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -18,14 +22,20 @@ document.addEventListener("DOMContentLoaded", function () {
         // Add customer details
         doc.setFontSize(12);
         doc.text("Customer Details", 14, 35);
-        doc.autoTable({
-            head: [['Field', 'Value']],
-            body: [
-                ['Sales Person', salesPerson],
-                ['Team Leader Involved', teamLeader],
-            ],
-            startY: 40,
-        });
+
+        // Check if autoTable is available
+        if (typeof doc.autoTable === "function") {
+            doc.autoTable({
+                head: [['Field', 'Value']],
+                body: [
+                    ['Sales Person', salesPerson],
+                    ['Team Leader Involved', teamLeader],
+                ],
+                startY: 40,
+            });
+        } else {
+            console.error("autoTable is not a function. Please check jsPDF and autoTable library.");
+        }
 
         // Save the PDF
         doc.save("Brio_Elevators_OTF_Form.pdf");
