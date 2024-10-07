@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const salesPerson = document.getElementById("salesPerson").value;
         const teamLeader = document.getElementById("teamLeader").value;
 
-        // Debugging: Log the values to the console
-        console.log("Sales Person:", salesPerson);
-        console.log("Team Leader Involved:", teamLeader);
-
         // Create a new jsPDF instance
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
@@ -21,16 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Wait for the image to load before adding it to the PDF
         logo.onload = function () {
-            // Add the logo to the PDF
-            doc.addImage(logo, 'PNG', 10, 10, 50, 20); // Adjust the position and size as needed
+            // Add the logo to the PDF (left side)
+            doc.addImage(logo, 'PNG', 10, 10, 50, 20); // X: 10, Y: 10, Width: 50, Height: 20
 
-            // Add the title
+            // Add the title on the right side of the logo
             doc.setFontSize(20);
-            doc.text("Brio Elevators OTF Form", 14, 40); // Adjust Y position after logo
+            const pageWidth = doc.internal.pageSize.getWidth(); // Get page width
+            doc.text("Brio Elevators OTF Form", pageWidth - 90, 25); // Adjust X position based on page width
 
             // Add customer details
             doc.setFontSize(12);
-            doc.text("Customer Details", 14, 55); // Adjust Y position after title
+            doc.text("Customer Details", 14, 55); // Adjust Y position after logo and title
 
             // Check if autoTable is available
             if (typeof doc.autoTable === "function") {
