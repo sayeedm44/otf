@@ -4,9 +4,10 @@ function generatePDF() {
     const margin = 20; // Margin from the top
     let y = margin; // Initial Y position for text
 
-    // Add logo and title on every page
+    // Add logo and title only on the first page
     doc.addImage('logo.png', 'PNG', 10, 10, 30, 30);
     doc.text('Brio Elevators OTF Form', 50, 20);
+    y += 30; // Move Y position down after adding logo and title
 
     // Function to add text and handle page breaks
     const addText = (text) => {
@@ -14,8 +15,7 @@ function generatePDF() {
         if (y + lineHeight > doc.internal.pageSize.height - margin) {
             doc.addPage();
             y = margin; // Reset Y position for new page
-            doc.addImage('logo.png', 'PNG', 10, 10, 30, 30); // Add logo again
-            doc.text('Brio Elevators OTF Form', 50, 20); // Add title again
+            // Do not add logo and title on new pages
         }
         doc.text(text, 20, y);
         y += lineHeight; // Move down for next line
@@ -100,7 +100,7 @@ function generatePDF() {
     const floors = document.getElementById('floors').value;
     const model = document.getElementById('model').value;
 
-    const fileName = `${customerName}-${city}-${area}-${floors}-${model}.pdf`;
+    const fileName = `${customerName}-OTF-${city}-${area}-${floors}-${model}.pdf`;
 
     doc.save(fileName);
 }
