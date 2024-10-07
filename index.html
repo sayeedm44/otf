@@ -1,44 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brio Elevators OTF Form</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your existing CSS file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.10/jspdf.plugin.autotable.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brio Elevators OTF Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brio-l2.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brio-l2.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/brio-l2.png" />
 </head>
 <body>
-
+  <div class="container">
+    <img src="logo.png" alt="Brio Logo" style="float: left; width: 100px; height: auto;">
     <h1>Brio Elevators OTF Form</h1>
-    <form id="elevatorForm">
-        <h2>Customer Details</h2>
-        <table>
-            <tr>
-                <th>Sales Person</th>
-                <td>
-                    <select id="salesPerson">
-                        <option value="Mallesh Naidu">Mallesh Naidu</option>
-                        <option value="Ibrahim Ayub">Ibrahim Ayub</option>
-                        <option value="Nandhini Nath">Nandhini Nath</option>
-                        <option value="Venkatesh J">Venkatesh J</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <th>Team Leader Involved</th>
-                <td>
-                    <select id="teamLeader">
-                        <option value="Afash">Afash</option>
-                        <option value="Venkatesh">Venkatesh</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
-        <br>
-        <button type="submit">Download as PDF</button>
-    </form>
 
-    <script src="script.js"></script> <!-- Ensure this is at the end -->
+    <form id="elevatorForm">
+      <h2>Customer Details</h2>
+      <label for="salesPerson">Sales Person:</label>
+      <select id="salesPerson" name="salesPerson">
+        <option value="Ibrahim Ayub">Ibrahim Ayub</option>
+        <option value="Nandhini Nath">Nandhini Nath</option>
+        <option value="Mallesh Naidu">Mallesh Naidu</option>
+      </select>
+
+      <label for="teamLeader">Team Leader Involved:</label>
+      <select id="teamLeader" name="teamLeader">
+        <option value="Venkatesh J">Venkatesh J</option>
+        <option value="Afash Mohammad">Afash Mohammad</option>
+      </select>
+
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName" name="customerName">
+
+      <label for="billingAddress">Billing Address:</label>
+      <input type="text" id="billingAddress" name="billingAddress">
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city">
+
+      <label for="area">Area:</label>
+      <input type="text" id="area" name="area">
+
+      <label for="finalQuotation">Final Quotation Number:</label>
+      <input type="text" id="finalQuotation" name="finalQuotation">
+
+      <label for="shippingAddress">Shipping Address:</label>
+      <input type="text" id="shippingAddress" name="shippingAddress">
+
+      <label for="referredBy">Referred By:</label>
+      <input type="text" id="referredBy" name="referredBy">
+
+      <label for="contactNumber">Contact Number:</label>
+      <input type="text" id="contactNumber" name="contactNumber">
+
+      <label for="altContactName">Alternate Contact Name:</label>
+      <input type="text" id="altContactName" name="altContactName">
+
+      <label for="altContactNumber">Alternate Contact Number:</label>
+      <input type="text" id="altContactNumber" name="altContactNumber">
+
+      <label for="email">Email ID:</label>
+      <input type="email" id="email" name="email">
+
+      <label for="datePaymentCollected">Date of Payment Collected:</label>
+      <input type="date" id="datePaymentCollected" name="datePaymentCollected">
+
+      <label for="orderTakenDate">Order Taken Date:</label>
+      <input type="date" id="orderTakenDate" name="orderTakenDate">
+
+      <label for="deliveryMonths">Promised Delivery in Months from Signing the Drawing:</label>
+      <input type="number" id="deliveryMonths" name="deliveryMonths">
+      
+      <!-- Page 2 -->
+      <h2>Order Details</h2>
+      <label for="model">Model:</label>
+      <select id="model" name="model">
+        <option value="Monte Luxe-Gearless Belt">Monte Luxe-Gearless Belt</option>
+        <option value="Ritz-Grealees Rope">Ritz-Grealees Rope</option>
+        <option value="Vista-Hydraulic">Vista-Hydraulic</option>
+        <option value="Brio Commercial-Mobility Series">Brio Commercial-Mobility Series</option>
+      </select>
+
+      <label for="shaft">Shaft:</label>
+      <input type="checkbox" id="shaftWith" name="shaftWith"> With Shaft
+      <input type="checkbox" id="shaftWithout" name="shaftWithout"> Without Shaft
+
+      <label for="installationType">Installation Type:</label>
+      <input type="checkbox" id="indoor" name="indoor"> Indoor
+      <input type="checkbox" id="outdoor" name="outdoor"> Outdoor
+
+      <label for="floors">No of Floors:</label>
+      <select id="floors" name="floors">
+        <option value="G+1">G+1</option>
+        <option value="G+2">G+2</option>
+        <option value="G+3">G+3</option>
+        <option value="G+3">G+4</option>
+        <option value="G+3">G+5</option>
+        <option value="G+3">G+6</option>
+        <option value="G+3">G+7</option>
+        <option value="G+3">G+8</option>
+        <option value="G+3">G+9</option>
+        <option value="G+3">G+10</option>
+        <!-- add remaining floors -->
+      </select>
+
+      <!-- Add other fields for Order Details similarly -->
+
+      <!-- Page 3 -->
+      <h2>COP/LOP</h2>
+      <label for="copLop">COP/LOP:</label>
+      <input type="checkbox" id="button" name="copLopButton"> Button
+      <input type="checkbox" id="touchPanels" name="copLopTouch"> Touch Panels
+      <input type="checkbox" id="fullTouch" name="copLopFullTouch"> Full Touch Vision
+
+      <!-- Add other fields for page 3 -->
+
+      <button type="button" onclick="generatePDF()">Download as PDF</button>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      
+      // Add logo and form content here
+      doc.addImage('logo.png', 'PNG', 10, 10, 30, 30); // Example: position (x: 10, y: 10), size (width: 30, height: 30)
+      doc.text('Brio Elevators OTF Form', 50, 20);
+
+      const customerName = document.getElementById('customerName').value;
+      const city = document.getElementById('city').value;
+      const area = document.getElementById('area').value;
+      const floors = document.getElementById('floors').value;
+      const model = document.getElementById('model').value;
+
+      // Use this data for file name
+      const fileName = `${customerName}-${city}-${area}-${floors}-${model}.pdf`;
+      
+      // Additional code to add all form fields to the PDF
+
+      doc.save(fileName);
+    }
+  </script>
 </body>
 </html>
