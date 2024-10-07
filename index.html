@@ -91,6 +91,30 @@
       <input type="checkbox" id="indoor" name="indoor"> Indoor
       <input type="checkbox" id="outdoor" name="outdoor"> Outdoor
 
+      <!-- Add your new data fields below -->
+      <label for="noOfStops">No of Stops:</label>
+      <input type="number" id="noOfStops" name="noOfStops">
+
+      <label for="shaftWidth">Shaft Width (mm):</label>
+      <input type="text" id="shaftWidth" name="shaftWidth">
+
+      <label for="shaftDepth">Shaft Depth (mm):</label>
+      <input type="text" id="shaftDepth" name="shaftDepth">
+
+      <label for="travelHeight">Travel Height (mm):</label>
+      <input type="text" id="travelHeight" name="travelHeight">
+
+      <label for="pit">Pit (mm):</label>
+      <input type="text" id="pit" name="pit">
+
+      <label for="headroom">Headroom (mm):</label>
+      <input type="text" id="headroom" name="headroom">
+
+      <label for="payload">Payload (kg):</label>
+      <input type="text" id="payload" name="payload">
+
+      
+
       <label for="floors">No of Floors:</label>
       <select id="floors" name="floors">
         <option value="G+1">G+1</option>
@@ -107,11 +131,57 @@
       </select>
 
       <!-- COP/LOP Details -->
+      
+      <label for="cabinType">Cabin Type:</label>
+      <input type="checkbox" id="classic" name="cabinTypeClassic"> Classic
+      <input type="checkbox" id="pro" name="cabinTypePro"> Pro
+      <input type="checkbox" id="elegance" name="cabinTypeElegance"> Elegance
+
+      <label for="glassWall">Glass Wall:</label>
+      <input type="checkbox" id="glassYes" name="glassWallYes"> Yes
+      <input type="checkbox" id="glassNo" name="glassWallNo"> No
+
+      <label for="handrail">Handrail:</label>
+      <input type="checkbox" id="handrailYes" name="handrailYes"> Yes
+      <input type="checkbox" id="handrailNo" name="handrailNo"> No
+
+      <label for="ceiling">Ceiling:</label>
+      <input type="checkbox" id="stripLight" name="ceilingStripLight"> Strip Light
+      <input type="checkbox" id="spotLight" name="ceilingSpotLight"> Spotlight
+
+      <label for="mirrorFinish">Mirror Finish:</label>
+      <input type="text" id="mirrorFinish" name="mirrorFinish">
+
+      <label for="cabinFlooring">Cabin Flooring:</label>
+      <input type="text" id="cabinFlooring" name="cabinFlooring">
+
+      <label for="doorOpening">Door Opening (mm):</label>
+      <input type="text" id="doorOpening" name="doorOpening">
+      
+      <label for="landingDoorType">Landing Door Type:</label>
+      <select id="landingDoorType" name="landingDoorType">
+        <option value="Central Auto Door">Central Auto Door</option>
+        <option value="Telescope Auto Door">Telescope Auto Door</option>
+        <option value="Swing">Swing</option>
+        <option value="Sliding">Sliding</option>
+      </select>
+      
       <h2>COP/LOP</h2>
       <label for="copLop">COP/LOP:</label>
       <input type="checkbox" id="button" name="copLopButton"> Button
       <input type="checkbox" id="touchPanels" name="copLopTouch"> Touch Panels
       <input type="checkbox" id="fullTouch" name="copLopFullTouch"> Full Touch Vision
+
+      <label for="authentication">Authentication:</label>
+      <input type="checkbox" id="rfid" name="authenticationRFID"> RFID
+      <input type="checkbox" id="pin" name="authenticationPIN"> PIN
+
+      <label for="authenticationNeed">Authentication Need:</label>
+      <input type="text" id="authenticationNeed" name="authenticationNeed">
+
+
+      <label for="shaftColor">Shaft Color:</label>
+      <input type="text" id="shaftColor" name="shaftColor">
 
       <button type="button" onclick="generatePDF()">Download as PDF</button>
     </form>
