@@ -65,4 +65,16 @@ function generatePDF() {
 
   // COP/LOP Details
   doc.text("COP/LOP", 20, 260);
+
+
+  // File naming convention
+      const customerName = document.getElementById('customerName').value;
+      const city = document.getElementById('city').value;
+      const area = document.getElementById('area').value;
+      const floors = document.getElementById('floors').value;
+      const model = document.getElementById('model').value;
+
+      const fileName = `${customerName}-${city}-${area}-${floors}-${model}.pdf`;
+
+      doc.save(fileName);
  
