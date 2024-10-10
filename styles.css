@@ -27,6 +27,28 @@ input[type="checkbox"] {
     width: auto;
 }
 
+.cabin-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px; /* Adjust as needed */
+}
+
+.cabin-details {
+    flex: 1; /* Takes up remaining space */
+}
+
+.cabin-image {
+    flex: 0 0 auto; /* Prevents it from growing */
+    margin-left: 20px; /* Space between text and image */
+}
+
+.cabin-image img {
+    max-width: 200px; /* Adjust the size as needed */
+    height: auto;
+}
+
+
 button {
     background-color: #5cb85c;
     color: white;
