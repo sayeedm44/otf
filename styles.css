@@ -27,11 +27,23 @@ input[type="checkbox"] {
     width: auto;
 }
 
+button {
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
 .cabin-container {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px; /* Adjust as needed */
+    align-items: flex-start; /* Align items to the top */
+    margin-bottom: 15px; /* Space below the container */
 }
 
 .cabin-details {
@@ -44,20 +56,7 @@ input[type="checkbox"] {
 }
 
 .cabin-image img {
-    max-width: 200px; /* Adjust the size as needed */
-    height: auto;
-}
-
-
-button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-button:hover {
-    background-color: #4cae4c;
+    max-width: 100px; /* Set to a smaller size */
+    height: auto; /* Maintain aspect ratio */
+    vertical-align: top; /* Aligns the image to the top */
 }
