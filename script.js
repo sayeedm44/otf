@@ -20,13 +20,13 @@ function generatePDF() {
   doc.text("Shipping Address: " + document.getElementById('shippingAddress').value, 20, 130);
   doc.text("Contact Number: " + document.getElementById('contactNumber').value, 20, 140);
   doc.text("Email ID: " + document.getElementById('email').value, 20, 150);
-  doc.text("Alternate Contact Name: " + document.getElementById('altContactName').value || 'N/A', 20, 160);
-  doc.text("Alternate Contact Number: " + document.getElementById('altContactNumber').value || 'N/A', 20, 170);
+  doc.text("Alternate Contact Name: " + (document.getElementById('altContactName').value || 'N/A'), 20, 160);
+  doc.text("Alternate Contact Number: " + (document.getElementById('altContactNumber').value || 'N/A'), 20, 170);
   doc.text("Final Quotation Number: " + document.getElementById('finalQuotation').value, 20, 180);
   doc.text("Date of Payment Collected: " + document.getElementById('datePaymentCollected').value, 20, 190);
   doc.text("Order Taken Date: " + document.getElementById('orderTakenDate').value, 20, 200);
   doc.text("Promised Delivery in Months from Signing the Drawing: " + document.getElementById('deliveryMonths').value, 20, 210);
-  doc.text("Cash & Account Commitments: " + document.getElementById('cashAccountCommitments').value || 'N/A', 20, 220);
+  doc.text("Cash & Account Commitments: " + (document.getElementById('cashAccountCommitments').value || 'N/A'), 20, 220);
 
   // New page for Order Details
   doc.addPage();
@@ -51,7 +51,7 @@ function generatePDF() {
   
   // Cabin Details Section
   doc.text("Cabin Details", 20, 20);
-  doc.text("Cabin Type: " + document.querySelector('input[name="cabinType"]:checked')?.value || 'N/A', 20, 30);
+  doc.text("Cabin Type: " + (document.querySelector('input[name="cabinType"]:checked')?.value || 'N/A'), 20, 30);
   doc.text("Glass Wall: " + (document.getElementById('glassYes')?.checked ? "Yes" : "No"), 20, 40);
   doc.text("Cabin Design:", 20, 50);
   doc.text("A side: " + (document.getElementById('cabinDesignA').value || 'N/A'), 20, 60);
