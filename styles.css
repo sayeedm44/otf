@@ -56,7 +56,6 @@ button:hover {
 }
 
 .cabin-image img {
-    max-width: 100px; /* Set to a smaller size */
+    max-width: 150px; /* Set to a smaller size */
     height: auto; /* Maintain aspect ratio */
-    vertical-align: top; /* Aligns the image to the top */
 }
