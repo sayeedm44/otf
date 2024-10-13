@@ -40,21 +40,26 @@ button:hover {
     background-color: #4cae4c;
 }
 
-.cabin-container {
+cabin-container {
     display: flex;
+    justify-content: space-between; /* Space between text and image */
     align-items: flex-start; /* Align items to the top */
-    margin-bottom: 15px; /* Space below the container */
+    margin-bottom: 15px;
 }
 
 .cabin-details {
-    flex: 1; /* Takes up remaining space */
+    flex: 1; /* Take up the remaining space for the details */
 }
 
 .cabin-image {
-    flex: 0 0 auto; /* Prevents it from growing */
-    margin-left: 20px; /* Space between text and image */
+    flex: 0 0 250px; /* Fix the width of the image container */
+    margin-left: 20px; /* Space between the details and the image */
 }
 
+.cabin-image img {
+    width: 100%; /* Ensure the image takes up the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+}
 .cabin-image img {
     max-width: 150px; /* Set to a smaller size */
     height: auto; /* Maintain aspect ratio */
