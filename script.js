@@ -29,24 +29,35 @@ function generatePDF() {
   let currentY = 20; // Starting Y position for new page
   const spacing = 10; // Space between lines
 
+  doc.text("Model: " + document.getElementById('model').value, 20, currentY);
+  currentY += spacing;
+  doc.text("Shaft: " + document.getElementById('shaft').value, 20, currentY);
+  currentY += spacing;
+  doc.text("Shaft Color: " + document.getElementById('shaftColor').value, 20, currentY);
+  currentY += spacing;
+  doc.text("Installation Type: " + document.getElementById('installationType').value, 20, currentY);
+  currentY += spacing;
   doc.text("Shaft Width: " + document.getElementById('shaftWidth').value + " mm", 20, currentY);
   currentY += spacing;
   doc.text("Shaft Depth: " + document.getElementById('shaftDepth').value + " mm", 20, currentY);
-  currentY += spacing;
-  doc.text("Travel Height: " + document.getElementById('travelHeight').value + " mm", 20, currentY);
   currentY += spacing;
   doc.text("Pit: " + document.getElementById('pit').value + " mm", 20, currentY);
   currentY += spacing;
   doc.text("Headroom: " + document.getElementById('headroom').value + " mm", 20, currentY);
   currentY += spacing;
+  doc.text("Travel Height: " + document.getElementById('travelHeight').value + " mm", 20, currentY);
+  currentY += spacing;
+  doc.text("Floor to Floor Distance: " + document.getElementById('floorToFloorDistance').value + " mm", 20, currentY);
+  currentY += spacing;
   doc.text("Payload: " + document.getElementById('payload').value + " kg", 20, currentY);
   currentY += spacing;
-
-  // Landing Door Type
-  doc.text("Landing Door Type: " + document.getElementById('doorType').value, 20, currentY);
+  doc.text("No of Floors: " + document.getElementById('floors').value, 20, currentY);
   currentY += spacing;
 
-  // Cabin Type (checkboxes)
+  // Cabin Details
+  doc.text("Cabin Details", 20, currentY);
+  currentY += spacing;
+
   const cabinType = [];
   if (document.getElementById('classic').checked) cabinType.push('Classic');
   if (document.getElementById('pro').checked) cabinType.push('Pro');
@@ -54,7 +65,6 @@ function generatePDF() {
   doc.text("Cabin Type: " + cabinType.join(', '), 20, currentY);
   currentY += spacing;
 
-  // More fields (like Glass Wall, Handrail, Ceiling)
   const glassWall = document.getElementById('glassYes').checked ? "Yes" : "No";
   doc.text("Glass Wall: " + glassWall, 20, currentY);
   currentY += spacing;
@@ -69,8 +79,33 @@ function generatePDF() {
   doc.text("Ceiling: " + ceiling.join(', '), 20, currentY);
   currentY += spacing;
 
-  // Additional Details
   doc.text("Cabin Flooring: " + document.getElementById('cabinFlooring').value, 20, currentY);
+  currentY += spacing;
+
+  // Door Details
+  doc.text("Door Details", 20, currentY);
+  currentY += spacing;
+  doc.text("Door Type: " + document.getElementById('doorType').value, 20, currentY);
+  currentY += spacing;
+  doc.text("Door Opening: " + document.getElementById('doorOpening').value + " mm", 20, currentY);
+  currentY += spacing;
+
+  // Additional Features
+  doc.addPage();
+  currentY = 20; // Reset Y position for new page
+  doc.text("Additional Features", 20, currentY);
+  currentY += spacing;
+
+  const safetyAlarm = document.getElementById('safetyAlarmYes').checked ? "Yes" : "No";
+  doc.text("Safety Alarm: " + safetyAlarm, 20, currentY);
+  currentY += spacing;
+
+  const intercomPhone = document.getElementById('intercomPhoneYes').checked ? "Yes" : "No";
+  doc.text("Intercom Phone: " + intercomPhone, 20, currentY);
+  currentY += spacing;
+
+  const voiceAnnouncer = document.getElementById('voiceAnnouncerYes').checked ? "Yes" : "No";
+  doc.text("Voice Announcer: " + voiceAnnouncer, 20, currentY);
   currentY += spacing;
 
   // COP/LOP Details
@@ -79,7 +114,6 @@ function generatePDF() {
   doc.text("COP/LOP", 20, currentY);
   currentY += spacing;
 
-  // COP/LOP options
   const copLopOptions = [];
   if (document.getElementById('button').checked) copLopOptions.push('Button');
   if (document.getElementById('touchPanels').checked) copLopOptions.push('Touch Panels');
@@ -87,16 +121,23 @@ function generatePDF() {
   doc.text("COP/LOP: " + copLopOptions.join(', '), 20, currentY);
   currentY += spacing;
 
-  // Authentication options
+  const copLopColor = [];
+  if (document.getElementById('colorWhite').checked) copLopColor.push('White');
+  if (document.getElementById('colorBlack').checked) copLopColor.push('Black');
+  doc.text("COP/LOP Color: " + copLopColor.join(', '), 20, currentY);
+  currentY += spacing;
+
   const authOptions = [];
   if (document.getElementById('rfid').checked) authOptions.push('RFID');
   if (document.getElementById('pin').checked) authOptions.push('PIN');
   doc.text("Authentication: " + authOptions.join(', '), 20, currentY);
   currentY += spacing;
 
-  // Other fields
   doc.text("Authentication Need: " + document.getElementById('authenticationNeed').value, 20, currentY);
   currentY += spacing;
+
+  // Additional Remarks
+  doc.text("Additional Remarks: " + document.getElementById('remarks').value, 20, currentY);
 
   // File naming convention
   const customerName = document.getElementById('customerName').value || "Customer";
