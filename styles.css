@@ -12,13 +12,14 @@ body {
     background: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevent overflow */
 }
 
 h1, h2 {
     text-align: center;
 }
 
-label, input, select, button, textarea { /* Added textarea here */
+label, input, select, button, textarea {
     width: 100%;
     margin-bottom: 15px;
 }
@@ -40,15 +41,16 @@ button:hover {
     background-color: #4cae4c;
 }
 
-cabin-container {
+.cabin-container {
     display: flex;
-    justify-content: space-between; /* Space between text and image */
-    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    align-items: flex-start;
     margin-bottom: 15px;
 }
 
 .cabin-details {
-    flex: 1; /* Take up the remaining space for the details */
+    flex: 1 1 300px; /* Allow flexibility and minimum width */
 }
 
 .cabin-image {
@@ -60,7 +62,33 @@ cabin-container {
     width: 100%; /* Ensure the image takes up the full width of the container */
     height: auto; /* Maintain aspect ratio */
 }
-.cabin-image img {
-    max-width: 150px; /* Set to a smaller size */
-    height: auto; /* Maintain aspect ratio */
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .cabin-container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+    }
+
+    .cabin-image {
+        margin-left: 0; /* Remove left margin */
+        margin-top: 15px; /* Add top margin */
+    }
+
+    .cabin-details {
+        margin-bottom: 15px; /* Add spacing between sections */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        padding: 8px; /* Adjust button size */
+    }
+
+    label, input, select, button, textarea {
+        font-size: 14px; /* Adjust font size for better readability */
+    }
 }
