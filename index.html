@@ -6,9 +6,9 @@
   <title>Brio Elevators OTF Form</title>
   <link rel="stylesheet" href="styles.css">
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/brio-2.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/brio-2.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/brio-2.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="brio-2.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="brio-2.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="brio-2.png" />
 </head>
 <body>
   <div class="container">
@@ -53,11 +53,11 @@
     <label for="email">Email ID:</label>
     <input type="email" id="email" name="email">
 
-    <label for="altContactName">Alternate Contact Name:</label>
-    <input type="text" id="altContactName" name="altContactName">
+    <label for="alternateContactName">Alternate Contact Name:</label>
+    <input type="text" id="alternateContactName" name="alternateContactName">
 
-    <label for="altContactNumber">Alternate Contact Number:</label>
-    <input type="text" id="altContactNumber" name="altContactNumber">
+    <label for="alternateContactNumber">Alternate Contact Number:</label>
+    <input type="text" id="alternateContactNumber" name="alternateContactNumber">
 
     <label for="finalQuotation">Final Quotation Number:</label>
     <input type="text" id="finalQuotation" name="finalQuotation">
@@ -131,51 +131,53 @@
       <option value="G+9">G+9</option>
       <option value="G+10">G+10</option>
     </select>
-<h2>Cabin Details</h2>
-<div class="cabin-container">
-    <div class="cabin-details">
+
+    <h2>Cabin Details</h2>
+    <div class="cabin-container">
+      <div class="cabin-details">
         <label for="cabinType">Cabin Type:</label><br>
-        <input type="checkbox" id="classic" name="cabinTypeClassic"> Classic<br>
-        <input type="checkbox" id="pro" name="cabinTypePro"> Pro<br>
-        <input type="checkbox" id="elegance" name="cabinTypeElegance"> Elegance<br>
+        <input type="checkbox" id="cabinTypeClassic" name="cabinTypeClassic"> Classic<br>
+        <input type="checkbox" id="cabinTypePro" name="cabinTypePro"> Pro<br>
+        <input type="checkbox" id="cabinTypeElegance" name="cabinTypeElegance"> Elegance<br>
 
         <label for="glassWall">Glass Wall:</label><br>
         <input type="checkbox" id="glassYes" name="glassWallYes"> Yes<br>
         <input type="checkbox" id="glassNo" name="glassWallNo"> No<br>
-    </div>
+      </div>
 
-    <div class="cabin-image">
+      <div class="cabin-image">
         <img src="cabin.png" alt="Cabin Image">
+      </div>
     </div>
-</div><div>
-    <label for="cabinDesign">Cabin Design:</label><br>
-    <input type="text" id="cabinDesignA" name="cabinDesignA" placeholder="A"><br>
-    <input type="text" id="cabinDesignB" name="cabinDesignB" placeholder="B"><br>
-    <input type="text" id="cabinDesignC" name="cabinDesignC" placeholder="C"><br>
-    <input type="text" id="cabinDesignDoor" name="cabinDesignDoor" placeholder="Door"><br>
-</div>
 
+    <div>
+      <label for="cabinDesign">Cabin Design:</label><br>
+      <input type="text" id="cabinDesignA" name="cabinDesignA" placeholder="A"><br>
+      <input type="text" id="cabinDesignB" name="cabinDesignB" placeholder="B"><br>
+      <input type="text" id="cabinDesignC" name="cabinDesignC" placeholder="C"><br>
+      <input type="text" id="cabinDesignDoor" name="cabinDesignDoor" placeholder="Door"><br>
+    </div>
 
-<div>
-    <label for="handrail">Handrail:</label><br>
-    <input type="checkbox" id="handrailYes" name="handrailYes"> Yes<br>
-    <input type="checkbox" id="handrailNo" name="handrailNo"> No<br>
-</div>
+    <div>
+      <label for="handrail">Handrail:</label><br>
+      <input type="checkbox" id="handrailYes" name="handrailYes"> Yes<br>
+      <input type="checkbox" id="handrailNo" name="handrailNo"> No<br>
+    </div>
 
-<div>
-    <label for="ceiling">Ceiling:</label><br>
-    <input type="checkbox" id="stripLight" name="ceilingStripLight"> Strip Light<br>
-    <input type="checkbox" id="spotLight" name="ceilingSpotLight"> Spotlight<br>
-</div>
+    <div>
+      <label for="ceiling">Ceiling:</label><br>
+      <input type="checkbox" id="ceilingStripLight" name="ceilingStripLight"> Strip Light<br>
+      <input type="checkbox" id="ceilingSpotLight" name="ceilingSpotLight"> Spotlight<br>
+    </div>
 
-<div>
-    <label for="cabinFlooring">Cabin Flooring:</label><br>
-    <input type="text" id="cabinFlooring" name="cabinFlooring"><br>
-</div>
+    <div>
+      <label for="cabinFlooring">Cabin Flooring:</label><br>
+      <input type="text" id="cabinFlooring" name="cabinFlooring"><br>
+    </div>
 
-<div>
-    <label for="doorType">Door Type:</label><br>
-    <select id="doorType" name="doorType">
+    <div>
+      <label for="doorType">Door Type:</label><br>
+      <select id="doorType" name="doorType">
         <option value="Central Auto Door">Central Auto Door</option>
         <option value="Telescope Auto Door">Telescope Auto Door</option>
         <option value="Swing">Swing</option>
@@ -184,73 +186,71 @@
         <option value="Full Vision Telescope Opening">Full Vision Telescope Opening</option>
         <option value="Half Vision Central Opening">Half Vision Central Opening</option>
         <option value="Half Vision Telescope Opening">Half Vision Telescope Opening</option>
-    </select><br>
-</div>
+      </select><br>
+    </div>
 
-<div>
-    <label for="doorOpening">Door Opening (mm):</label><br>
-    <input type="text" id="doorOpening" name="doorOpening"><br>
-</div>
-
+    <div>
+      <label for="doorOpening">Door Opening (mm):</label><br>
+      <input type="text" id="doorOpening" name="doorOpening"><br>
+    </div>
 
     <h2>Additional Features</h2>
 
-<div>
-    <label for="safetyAlarm">Safety Alarm:</label><br>
-    <input type="checkbox" id="safetyAlarmYes" name="safetyAlarmYes"> Yes<br>
-    <input type="checkbox" id="safetyAlarmNo" name="safetyAlarmNo"> No<br>
-</div>
+    <div>
+      <label for="safetyAlarm">Safety Alarm:</label><br>
+      <input type="checkbox" id="safetyAlarmYes" name="safetyAlarmYes"> Yes<br>
+      <input type="checkbox" id="safetyAlarmNo" name="safetyAlarmNo"> No<br>
+    </div>
 
-<div>
-    <label for="intercomPhone">Intercom Phone:</label><br>
-    <input type="checkbox" id="intercomPhoneYes" name="intercomPhoneYes"> Yes<br>
-    <input type="checkbox" id="intercomPhoneNo" name="intercomPhoneNo"> No<br>
-</div>
+    <div>
+      <label for="intercomPhone">Intercom Phone:</label><br>
+      <input type="checkbox" id="intercomPhoneYes" name="intercomPhoneYes"> Yes<br>
+      <input type="checkbox" id="intercomPhoneNo" name="intercomPhoneNo"> No<br>
+    </div>
 
-<div>
-    <label for="voiceAnnouncer">Voice Announcer:</label><br>
-    <input type="checkbox" id="voiceAnnouncerYes" name="voiceAnnouncerYes"> Yes<br>
-    <input type="checkbox" id="voiceAnnouncerNo" name="voiceAnnouncerNo"> No<br>
-</div>
-<h2>COP/LOP Details</h2>
+    <div>
+      <label for="voiceAnnouncer">Voice Announcer:</label><br>
+      <input type="checkbox" id="voiceAnnouncerYes" name="voiceAnnouncerYes"> Yes<br>
+      <input type="checkbox" id="voiceAnnouncerNo" name="voiceAnnouncerNo"> No<br>
+    </div>
 
-<div>
-    <label for="copLop">COP/LOP:</label><br>
-    <input type="checkbox" id="button" name="copLopButton"> Button<br>
-    <input type="checkbox" id="touchPanels" name="copLopTouch"> Touch Panels<br>
-    <input type="checkbox" id="fullTouch" name="copLopFullTouch"> Full Touch Vision<br>
-</div>
+    <h2>COP/LOP Details</h2>
 
-<div>
-    <label for="copLopColor">COP/LOP Color:</label><br>
-    <input type="checkbox" id="colorWhite" name="copLopColorWhite"> White<br>
-    <input type="checkbox" id="colorBlack" name="copLopColorBlack"> Black<br>
-</div>
+    <div>
+      <label for="copLop">COP/LOP:</label><br>
+      <input type="checkbox" id="copLopButton" name="copLopButton"> Button<br>
+      <input type="checkbox" id="copLopTouch" name="copLopTouch"> Touch Panels<br>
+      <input type="checkbox" id="copLopFullTouch" name="copLopFullTouch"> Full Touch Vision<br>
+    </div>
 
-<div>
-    <label for="authentication">Authentication:</label><br>
-    <input type="checkbox" id="rfid" name="authenticationRFID"> RFID<br>
-    <input type="checkbox" id="pin" name="authenticationPIN"> PIN<br>
-</div>
+    <div>
+      <label for="copLopColor">COP/LOP Color:</label><br>
+      <input type="checkbox" id="copLopColorWhite" name="copLopColorWhite"> White<br>
+      <input type="checkbox" id="copLopColorBlack" name="copLopColorBlack"> Black<br>
+    </div>
 
-<div>
-    <label for="authenticationNeed">Authentication Need:</label><br>
-    <input type="text" id="authenticationNeed" name="authenticationNeed"><br>
-</div>
+    <div>
+      <label for="authentication">Authentication:</label><br>
+      <input type="checkbox" id="authenticationRFID" name="authenticationRFID"> RFID<br>
+      <input type="checkbox" id="authenticationPIN" name="authenticationPIN"> PIN<br>
+    </div>
 
+    <div>
+      <label for="authenticationNeed">Authentication Need:</label><br>
+      <input type="text" id="authenticationNeed" name="authenticationNeed"><br>
+    </div>
 
     <h2>Additional Remarks</h2>
-<div>
-    <label for="remarks">Please provide any other details or special cases:</label><br>
-    <textarea id="remarks" name="remarks" rows="4" placeholder="Enter your comments here..."></textarea>
-</div>
+    <div>
+      <label for="remarks">Please provide any other details or special cases:</label><br>
+      <textarea id="remarks" name="remarks" rows="4" placeholder="Enter your comments here..."></textarea>
+    </div>
 
     <button type="button" onclick="generatePDF()">Download as PDF</button>
-  </form>
-</div>
+  </div>
 
-<!-- Include external JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="script.js"></script>
+  <!-- Include external JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
