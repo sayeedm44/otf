@@ -1,105 +1,46 @@
+/* General Body Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #f4f4f4; /* Light background for better contrast */
 }
 
+/* Main Container Styles */
 .container {
-    max-width: 800px; /* Increased width for better layout */
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Set a maximum width for the container */
+    margin: auto; /* Center the container */
+    padding: 20px; /* Add padding for inner spacing */
+    background: white; /* White background for the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     overflow: hidden; /* Prevent overflow */
 }
 
+/* Headings Styles */
 h1, h2 {
-    text-align: center;
+    text-align: center; /* Center-align headings */
 }
 
+/* Label Styles */
 label {
-    font-weight: bold; /* Make labels stand out */
+    font-weight: bold; /* Bold labels for visibility */
 }
 
+/* Input, Select, Button, and Textarea Styles */
 input, select, button, textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 10px; /* Added padding for inputs */
-    border: 1px solid #ccc; /* Added border for clarity */
-    border-radius: 4px; /* Rounded corners for inputs */
-    font-size: 16px; /* Slightly larger font for better readability */
+    width: 100%; /* Full width for all form controls */
+    margin-bottom: 15px; /* Space below each element */
+    padding: 10px; /* Padding for better touch target */
+    border: 1px solid #ccc; /* Light border for inputs */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Consistent font size */
 }
 
+/* Button Styles */
 button {
-    background-color: #5cb85c;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px; /* Make button text larger */
-}
-
-button:hover {
-    background-color: #4cae4c;
-}
-
-.cabin-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 15px;
-}
-
-.cabin-details {
-    flex: 1 1 300px; /* Allow flexibility and minimum width */
-}
-
-.cabin-image {
-    flex: 0 0 250px; /* Fix the width of the image container */
-    margin-left: 20px; /* Space between the details and the image */
-}
-
-.cabin-image img {
-    width: 100%; /* Ensure the image takes up the full width of the container */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Styling for file inputs */
-input[type="file"] {
-    border: none; /* Remove border */
-    padding: 5px; /* Reduce padding for file inputs */
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    .cabin-container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-    }
-
-    .cabin-image {
-        margin-left: 0; /* Remove left margin */
-        margin-top: 15px; /* Add top margin */
-    }
-
-    .cabin-details {
-        margin-bottom: 15px; /* Add spacing between sections */
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px; /* Reduce padding on smaller screens */
-    }
-
-    button {
-        padding: 8px; /* Adjust button size */
-    }
-
-    label, input, select, button, textarea {
-        font-size: 14px; /* Adjust font size for better readability */
-    }
-}
+    background-color: #5cb85c; /* Primary button color */
+    color: white; /* White text on button */
+    border: none; /* No border for buttons */
+    cursor: pointer; /* Pointer cursor for buttons */
+  
