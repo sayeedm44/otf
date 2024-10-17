@@ -178,6 +178,69 @@
       </select>
     </div>
 
+     <div>
+      <label for="ceiling">Ceiling:</label>
+      <select id="ceiling" name="ceiling">
+        <option value="Strip Light">Strip Light</option>
+        <option value="Square Light">Square Light</option>
+      </select>
+    </div>
+
+    <h2>Additional Features</h2>
+    <label for="SafetyAlarm">Safety Alarm:</label>
+    <select id="SafetyAlarm" name="SafetyAlarm">
+      <option value="SafetyAlarmYes">Yes</option>
+      <option value="SafetyAlarmNo">No</option>
+    </select>
+
+    <label for="IntercomPhone">Intercom Phone:</label>
+    <select id="IntercomPhone" name="IntercomPhone">
+      <option value="IntercomPhoneYes">Yes</option>
+      <option value="IntercomPhoneNo">No</option>
+    </select>
+
+    <label for="VoiceAnnouncer">Voice Announcer:</label>
+    <select id="VoiceAnnouncer" name="VoiceAnnouncer">
+      <option value="VoiceAnnouncerYes">Yes</option>
+      <option value="VoiceAnnouncerNo">No</option>
+    </select>
+
+    <h2>COP/LOP Details</h2>
+
+    <div>
+      <label for="copLop">COP/LOP:</label><br>
+      <select id="copLop" name="copLop">
+        <option value="button">Button</option>
+        <option value="touch">Touch Panels</option>
+        <option value="fullTouchVision">Full Touch Vision</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="copLopColor">COP/LOP Color:</label><br>
+      <select id="copLopColor" name="copLopColor">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="authentication">Authentication:</label><br>
+      <select id="authentication" name="authentication">
+        <option value="rfid">RFID</option>
+        <option value="pin">PIN</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="authenticationNeed">Authentication Need:</label><br>
+      <input type="text" id="authenticationNeed" name="authenticationNeed"><br>
+    </div>
+
+    <label for="remarks">Additional Remarks:</label>
+    <textarea id="remarks" name="remarks"></textarea>
+
+
     <h2>Upload Photos</h2>
     <label for="buildingPhotos">Building/Site:</label>
     <input type="file" id="buildingPhotos" name="buildingPhotos" accept="image/*"><br>
