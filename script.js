@@ -1,103 +1,113 @@
-function generatePDF() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+// JavaScript file for Brio Elevators OTF Form
 
-  // Check if logo exists
-  doc.addImage('logo.png', 'PNG', 10, 10, 30, 30);
-  doc.text('Brio Elevators OTF Form', 50, 20);
+// Prevent default Enter key behavior in text areas to allow for new lines
+const textAreas = document.querySelectorAll('textarea');
+textAreas.forEach(textarea => {
+    textarea.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
 
-  // Sales Team Section
-  doc.text("Sales Team", 20, 40);
-  doc.text("Sales Person: " + document.getElementById('salesPerson').value, 20, 50);
-  doc.text("Team Leader Involved: " + document.getElementById('teamLeader').value, 20, 60);
+            // Insert a new line at the cursor position
+            textarea.value = textarea.value.substring(0, start) + '\n' + textarea.value.substring(end);
+            textarea.selectionStart = textarea.selectionEnd = start + 1; // Move cursor to the new line
+        }
+    });
+});
 
-  // Customer Details Section
-  doc.text("Customer Details", 20, 80);
-  doc.text("Customer Name: " + document.getElementById('customerName').value, 20, 90);
-  doc.text("Area: " + document.getElementById('area').value, 20, 100);
-  doc.text("City: " + document.getElementById('city').value, 20, 110);
-  doc.text("Billing Address: " + document.getElementById('billingAddress').value, 20, 120);
-  doc.text("Shipping Address: " + document.getElementById('shippingAddress').value, 20, 130);
-  doc.text("Contact Number: " + document.getElementById('contactNumber').value, 20, 140);
-  doc.text("Email ID: " + document.getElementById('email').value, 20, 150);
-  doc.text("Alternate Contact Name: " + (document.getElementById('altContactName').value || 'N/A'), 20, 160);
-  doc.text("Alternate Contact Number: " + (document.getElementById('altContactNumber').value || 'N/A'), 20, 170);
-  doc.text("Final Quotation Number: " + document.getElementById('finalQuotation').value, 20, 180);
-  doc.text("Date of Payment Collected: " + document.getElementById('datePaymentCollected').value, 20, 190);
-  doc.text("Order Taken Date: " + document.getElementById('orderTakenDate').value, 20, 200);
-  doc.text("Promised Delivery in Months from Signing the Drawing: " + document.getElementById('deliveryMonths').value, 20, 210);
-  doc.text("Cash & Account Commitments: " + (document.getElementById('cashAccountCommitments').value || 'N/A'), 20, 220);
+// Enable Enter key for new lines and Tab key for switching fields
+document.querySelectorAll('input, select, textarea').forEach(element => {
+    element.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab') {
+            event.preventDefault(); // Prevent default tab behavior
+            const inputs = Array.from(document.querySelectorAll('input, select, textarea'));
+            const index = inputs.indexOf(event.target);
+            const nextIndex = (index + 1) % inputs.length; // Loop back to the start
+            inputs[nextIndex].focus();
+        }
+    });
+});
 
-  // New page for Order Details
-  doc.addPage();
-  
-  // Order Details Section
-  doc.text("Order Details", 20, 20);
-  doc.text("Model: " + document.getElementById('model').value, 20, 30);
-  doc.text("Shaft: " + document.getElementById('shaft').value, 20, 40);
-  doc.text("Shaft Color: " + document.getElementById('shaftColor').value, 20, 50);
-  doc.text("Installation Type: " + document.getElementById('installationType').value, 20, 60);
-  doc.text("Shaft Width (mm): " + document.getElementById('shaftWidth').value, 20, 70);
-  doc.text("Shaft Depth (mm): " + document.getElementById('shaftDepth').value, 20, 80);
-  doc.text("Pit (mm): " + document.getElementById('pit').value, 20, 90);
-  doc.text("Headroom (mm): " + document.getElementById('headroom').value, 20, 100);
-  doc.text("Travel Height (mm): " + document.getElementById('travelHeight').value, 20, 110);
-  doc.text("Floor to Floor Distance (mm): " + document.getElementById('floorToFloorDistance').value, 20, 120);
-  doc.text("Payload (kg): " + document.getElementById('payload').value, 20, 130);
-  doc.text("No of Floors: " + document.getElementById('floors').value, 20, 140);
+// Function to download the form data as a PDF
+function downloadPDF() {
+    // Get all form data
+    const formData = {
+        salesPerson: document.getElementById('salesPerson').value,
+        teamLeader: document.getElementById('teamLeader').value,
+        customerName: document.getElementById('customerName').value,
+        area: document.getElementById('area').value,
+        city: document.getElementById('city').value,
+        billingAddress: document.getElementById('billingAddress').value,
+        shippingAddress: document.getElementById('shippingAddress').value,
+        location: document.getElementById('location').value,
+        contactNumber: document.getElementById('contactNumber').value,
+        email: document.getElementById('email').value,
+        alternateContactName: document.getElementById('alternateContactName').value,
+        alternateContactNumber: document.getElementById('alternateContactNumber').value,
+        finalQuotation: document.getElementById('finalQuotation').value,
+        datePaymentCollected: document.getElementById('datePaymentCollected').value,
+        orderTakenDate: document.getElementById('orderTakenDate').value,
+        deliveryMonths: document.getElementById('deliveryMonths').value,
+        cashAccountCommitments: document.getElementById('cashAccountCommitments').value,
+        model: document.getElementById('model').value,
+        shaft: document.getElementById('shaft').value,
+        shaftColor: document.getElementById('shaftColor').value,
+        installationType: document.getElementById('installationType').value,
+        shaftWidth: document.getElementById('shaftWidth').value,
+        shaftDepth: document.getElementById('shaftDepth').value,
+        pit: document.getElementById('pit').value,
+        headroom: document.getElementById('headroom').value,
+        travelHeight: document.getElementById('travelHeight').value,
+        floorToFloorDistance: document.getElementById('floorToFloorDistance').value,
+        payload: document.getElementById('payload').value,
+        floors: document.getElementById('floors').value,
+        cabinType: document.getElementById('cabinType').value,
+        glassWall: document.getElementById('glassWall').value,
+        cabinDesignA: document.getElementById('cabinDesignA').value,
+        cabinDesignB: document.getElementById('cabinDesignB').value,
+        cabinDesignC: document.getElementById('cabinDesignC').value,
+        cabinDesignDoor: document.getElementById('cabinDesignDoor').value,
+        handrail: document.getElementById('handrail').value,
+        ceiling: document.getElementById('ceiling').value,
+        SafetyAlarm: document.getElementById('SafetyAlarm').value,
+        IntercomPhone: document.getElementById('IntercomPhone').value,
+        VoiceAnnouncer: document.getElementById('VoiceAnnouncer').value,
+        copLop: document.getElementById('copLop').value,
+        copLopColor: document.getElementById('copLopColor').value,
+        authentication: document.getElementById('authentication').value,
+        authenticationNeed: document.getElementById('authenticationNeed').value,
+        remarks: document.getElementById('remarks').value,
+        buildingPhotos: document.getElementById('buildingPhotos').value,
+        pitPhotos: document.getElementById('pitPhotos').value,
+        headroomPhotos: document.getElementById('headroomPhotos').value,
+        SelectedCOPLOP: document.getElementById('SelectedCOPLOP').value,
+        SelectedCabin: document.getElementById('SelectedCabin').value,
+        remainingPhotos: document.getElementById('remainingPhotos').value
+    };
 
-  // New page for Cabin Details
-  doc.addPage();
-  
-  // Cabin Details Section
-  doc.text("Cabin Details", 20, 20);
-  doc.text("Cabin Type: " + (document.querySelector('input[name="cabinType"]:checked')?.value || 'N/A'), 20, 30);
-  doc.text("Glass Wall: " + (document.getElementById('glassYes')?.checked ? "Yes" : "No"), 20, 40);
-  doc.text("Cabin Design:", 20, 50);
-  doc.text("A side: " + (document.getElementById('cabinDesignA').value || 'N/A'), 20, 60);
-  doc.text("B side: " + (document.getElementById('cabinDesignB').value || 'N/A'), 20, 70);
-  doc.text("C side: " + (document.getElementById('cabinDesignC').value || 'N/A'), 20, 80);
-  doc.text("Door Side: " + (document.getElementById('cabinDesignDoor').value || 'N/A'), 20, 90);
-  doc.text("Handrail: " + (document.getElementById('handrailYes')?.checked ? "Yes" : "No"), 20, 100);
-  doc.text("Ceiling: " + (document.querySelector('input[name="ceiling"]:checked')?.value || 'N/A'), 20, 110);
-  doc.text("Cabin Flooring: " + document.getElementById('cabinFlooring').value, 20, 120);
-  doc.text("Door Type: " + document.getElementById('doorType').value, 20, 130);
-  doc.text("Door Opening (mm): " + document.getElementById('doorOpening').value, 20, 140);
+    // Generate the PDF using a library like jsPDF
+    const doc = new jsPDF();
 
-  // New page for Additional Features
-  doc.addPage();
+    // Add logo to the PDF
+    const logoImg = new Image();
+    logoImg.src = 'logo.png';
+    logoImg.onload = () => {
+        doc.addImage(logoImg, 'PNG', 10, 10, 40, 20); // Adjust the position and size of the logo
 
-  // Additional Features Section
-  doc.text("Additional Features", 20, 20);
-  doc.text("Safety Alarm: " + (document.getElementById('safetyAlarmYes')?.checked ? "Yes" : "No"), 20, 30);
-  doc.text("Intercom Phone: " + (document.getElementById('intercomPhoneYes')?.checked ? "Yes" : "No"), 20, 40);
-  doc.text("Voice Announcer: " + (document.getElementById('voiceAnnouncerYes')?.checked ? "Yes" : "No"), 20, 50);
+        doc.setFontSize(22);
+        doc.text('Brio Elevators OTF Form', 70, 20); // Title positioning
 
-  // New page for COP/LOP Details
-  doc.addPage();
+        // Populate the PDF with form data
+        doc.setFontSize(12);
+        let y = 30; // Starting y position for text
+        for (const key in formData) {
+            doc.text(`${key.replace(/([A-Z])/g, ' $1')}: ${formData[key]}`, 10, y);
+            y += 10; // Move down for the next line
+        }
 
-  // COP/LOP Details Section
-  doc.text("COP/LOP Details", 20, 20);
-  doc.text("COP/LOP: " + (document.getElementById('button')?.checked ? "Button" : "Other"), 20, 30);
-  doc.text("COP/LOP Color: " + (document.getElementById('copLopColor')?.value || 'N/A'), 20, 40);
-  doc.text("Authentication: " + (document.getElementById('rfid')?.checked ? "RFID" : "Other"), 20, 50);
-  doc.text("Authentication Need: " + document.getElementById('authenticationNeed').value, 20, 60);
-
-  // New page for Additional Remarks
-  doc.addPage();
-
-  // Additional Remarks Section
-  doc.text("Additional Remarks", 20, 20);
-  doc.text("Please provide any other details or special cases: " + document.getElementById('remarks').value, 20, 30);
-
-  // File naming convention
-  const customerName = document.getElementById('customerName').value || "Customer";
-  const city = document.getElementById('city').value || "City";
-  const area = document.getElementById('area').value || "Area";
-  const floors = document.getElementById('floors').value || "Floors";
-  const model = document.getElementById('model').value || "Model";
-
-  const fileName = `${customerName}-OTF-${city}-${area}-${floors}-${model}.pdf`.replace(/ /g, "_");
-
-  doc.save(fileName);
+        // Save the PDF with the specified filename format
+        const filename = `${formData.customerName}-OTF-${formData.city}-${formData.area}-${formData.floors}-${formData.model}.pdf`;
+        doc.save(filename);
+    };
 }
