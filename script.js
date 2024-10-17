@@ -1,36 +1,5 @@
-// JavaScript file for Brio Elevators OTF Form
-
-// Prevent default Enter key behavior in text areas to allow for new lines
-const textAreas = document.querySelectorAll('textarea');
-textAreas.forEach(textarea => {
-    textarea.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            const start = textarea.selectionStart;
-            const end = textarea.selectionEnd;
-
-            // Insert a new line at the cursor position
-            textarea.value = textarea.value.substring(0, start) + '\n' + textarea.value.substring(end);
-            textarea.selectionStart = textarea.selectionEnd = start + 1; // Move cursor to the new line
-        }
-    });
-});
-
-// Enable Enter key for new lines and Tab key for switching fields
-document.querySelectorAll('input, select, textarea').forEach(element => {
-    element.addEventListener('keydown', (event) => {
-        if (event.key === 'Tab') {
-            event.preventDefault(); // Prevent default tab behavior
-            const inputs = Array.from(document.querySelectorAll('input, select, textarea'));
-            const index = inputs.indexOf(event.target);
-            const nextIndex = (index + 1) % inputs.length; // Loop back to the start
-            inputs[nextIndex].focus();
-        }
-    });
-});
-
 // Function to download the form data as a PDF
-function downloadPDF() {
+async function downloadPDF() {
     // Get all form data
     const formData = {
         salesPerson: document.getElementById('salesPerson').value,
@@ -86,14 +55,17 @@ function downloadPDF() {
         remainingPhotos: document.getElementById('remainingPhotos').value
     };
 
-    // Generate the PDF using a library like jsPDF
+    const { jsPDF } = window.jspdf; // Use the jsPDF library
+
+    // Create a new PDF document
     const doc = new jsPDF();
 
-    // Add logo to the PDF
+    // Create a promise to load the logo image
     const logoImg = new Image();
     logoImg.src = 'logo.png';
+    
     logoImg.onload = () => {
-        doc.addImage(logoImg, 'PNG', 10, 10, 40, 20); // Adjust the position and size of the logo
+        doc.addImage(logoImg, 'PNG', 10, 10, 40, 20); // Adjust position and size of logo
 
         doc.setFontSize(22);
         doc.text('Brio Elevators OTF Form', 70, 20); // Title positioning
