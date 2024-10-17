@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 700px;
+    max-width: 800px; /* Increased width for better layout */
     margin: auto;
     padding: 20px;
     background: white;
@@ -19,9 +19,17 @@ h1, h2 {
     text-align: center;
 }
 
-label, input, select, button, textarea {
+label {
+    font-weight: bold; /* Make labels stand out */
+}
+
+input, select, button, textarea {
     width: 100%;
     margin-bottom: 15px;
+    padding: 10px; /* Added padding for inputs */
+    border: 1px solid #ccc; /* Added border for clarity */
+    border-radius: 4px; /* Rounded corners for inputs */
+    font-size: 16px; /* Slightly larger font for better readability */
 }
 
 button {
@@ -31,6 +39,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 4px;
+    font-size: 16px; /* Make button text larger */
 }
 
 button:hover {
@@ -57,6 +66,12 @@ button:hover {
 .cabin-image img {
     width: 100%; /* Ensure the image takes up the full width of the container */
     height: auto; /* Maintain aspect ratio */
+}
+
+/* Styling for file inputs */
+input[type="file"] {
+    border: none; /* Remove border */
+    padding: 5px; /* Reduce padding for file inputs */
 }
 
 /* Media Queries for Responsiveness */
