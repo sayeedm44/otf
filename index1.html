@@ -91,6 +91,7 @@
       <option value="with">With Shaft</option>
       <option value="without">Without Shaft</option>
     </select>
+
     <label for="shaftColor">Shaft Color:</label>
     <input type="text" id="shaftColor" name="shaftColor">
 
@@ -158,6 +159,7 @@
     </div>
 
     <div>
+      <label for="cabinDesign">Cabin Design:</label><br>
       <label for="cabinDesignA">A Side:</label><br>
       <input type="text" id="cabinDesignA" name="cabinDesignA" placeholder="A"><br>
       <label for="cabinDesignB">B Side:</label><br>
@@ -176,38 +178,19 @@
       </select>
     </div>
 
-    <div>
-      <label for="ceiling">Ceiling:</label>
-      <select id="ceiling" name="ceiling">
-        <option value="Strip Light">Strip Light</option>
-        <option value="Square Light">Square Light</option>
-      </select>
-    </div>
-
-    <h2>Additional Features</h2>
-    <label for="features">Features:</label>
-    <select id="features" name="features">
-      <option value="None">None</option>
-      <option value="Emergency Battery Backup">Emergency Battery Backup</option>
-      <option value="Automatic Rescue Device (ARD)">Automatic Rescue Device (ARD)</option>
-    </select>
-
-    <label for="remarks">Additional Remarks:</label>
-    <textarea id="remarks" name="remarks"></textarea>
-
     <h2>Upload Photos</h2>
-    <label for="sitePhoto">Building/Site:</label>
-    <input type="file" id="sitePhoto" name="sitePhoto">
+    <label for="buildingPhotos">Building/Site:</label>
+    <input type="file" id="buildingPhotos" name="buildingPhotos" accept="image/*"><br>
 
-    <label for="pitPhoto">PIT:</label>
-    <input type="file" id="pitPhoto" name="pitPhoto">
+    <label for="pitPhotos">PIT:</label>
+    <input type="file" id="pitPhotos" name="pitPhotos" accept="image/*"><br>
 
-    <label for="headroomPhoto">Headroom:</label>
-    <input type="file" id="headroomPhoto" name="headroomPhoto">
+    <label for="headroomPhotos">Headroom:</label>
+    <input type="file" id="headroomPhotos" name="headroomPhotos" accept="image/*"><br>
 
-    <label for="otherPhotos">Remaining Pics:</label>
-    <input type="file" id="otherPhotos" name="otherPhotos">
-    
+    <label for="remainingPhotos">Remaining Pics:</label>
+    <input type="file" id="remainingPhotos" name="remainingPhotos" accept="image/*"><br>
+
     <button type="submit">Submit</button>
   </div>
 </body>
