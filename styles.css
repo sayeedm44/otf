@@ -1,13 +1,13 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px;
     background-color: #f4f4f4;
 }
 
 .container {
-    max-width: 800px; /* Set a max width for the form */
-    margin: 20px auto; /* Center the container and add top margin */
+    max-width: 700px;
+    margin: auto;
     padding: 20px;
     background: white;
     border-radius: 8px;
@@ -17,81 +17,78 @@ body {
 
 h1, h2 {
     text-align: center;
-    margin: 10px 0; /* Adjust margins for better spacing */
 }
 
-label {
-    font-weight: bold; /* Make labels stand out */
-    margin-bottom: 5px; /* Space between label and input */
-    display: block; /* Ensure labels are block elements */
+label, input, select, button, textarea {
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-input, select, button, textarea {
-    width: 100%; /* Full width for inputs */
-    margin-bottom: 15px; /* Space between inputs */
-    padding: 12px; /* Increased padding for inputs */
-    border: 1px solid #ccc; /* Added border for clarity */
-    border-radius: 4px; /* Rounded corners for inputs */
-    font-size: 16px; /* Slightly larger font for better readability */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
+input[type="checkbox"] {
+    width: auto;
 }
 
 button {
     background-color: #5cb85c;
     color: white;
-    padding: 12px;
+    padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 4px;
-    font-size: 16px; /* Make button text larger */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
 button:hover {
-    background-color: #4cae4c; /* Darker shade on hover */
+    background-color: #4cae4c;
+}
+
+.cabin-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
 }
 
 .cabin-details {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space out the inputs and image */
-    align-items: flex-start; /* Align items at the start */
-    margin-top: 20px; /* Optional: add space above the section */
-}
-
-.cabin-inputs {
-    flex: 1; /* Allow the inputs to take up available space */
-    margin-right: 20px; /* Space between inputs and image */
-}
-
-.cabin-inputs label {
-    display: block; /* Make labels block elements */
-    margin: 10px 0 5px; /* Add spacing for labels */
+    flex: 1 1 300px; /* Allow flexibility and minimum width */
 }
 
 .cabin-image {
-    max-width: 300px; /* Set a max width for the image container */
+    flex: 0 0 250px; /* Fix the width of the image container */
+    margin-left: 20px; /* Space between the details and the image */
 }
 
 .cabin-image img {
-    max-width: 100%; /* Make the image responsive */
+    width: 100%; /* Ensure the image takes up the full width of the container */
     height: auto; /* Maintain aspect ratio */
 }
 
-
-
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px; /* Adjust padding for smaller screens */
+    .cabin-container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
     }
 
-    input, select, button, textarea {
-        font-size: 14px; /* Adjust font size for better readability */
+    .cabin-image {
+        margin-left: 0; /* Remove left margin */
+        margin-top: 15px; /* Add top margin */
+    }
+
+    .cabin-details {
+        margin-bottom: 15px; /* Add spacing between sections */
     }
 }
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px; /* Further reduce padding on very small screens */
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    button {
+        padding: 8px; /* Adjust button size */
+    }
+
+    label, input, select, button, textarea {
+        font-size: 14px; /* Adjust font size for better readability */
     }
 }
