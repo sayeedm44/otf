@@ -248,23 +248,27 @@
 
 
     <h2>Upload Photos</h2>
-    <label for="buildingPhotos">Building/Site:</label>
-    <input type="file" id="buildingPhotos" name="buildingPhotos" accept="image/*"><br>
+      <label for="buildingPhotos">Building/Site:</label>
+      <input type="file" id="buildingPhotos" name="buildingPhotos" accept="image/*" multiple><br>
+      
+      <label for="pitPhotos">PIT:</label>
+      <input type="file" id="pitPhotos" name="pitPhotos" accept="image/*" multiple><br>
+      
+      <label for="headroomPhotos">Headroom:</label>
+      <input type="file" id="headroomPhotos" name="headroomPhotos" accept="image/*" multiple><br>
+      
+      <label for="SelectedCOPLOP">Selected COP/LOP:</label>
+      <input type="file" id="SelectedCOPLOP" name="SelectedCOPLOP" accept="image/*" multiple><br>
+      
+      <label for="SelectedCabin">Selected Cabin:</label>
+      <input type="file" id="SelectedCabin" name="SelectedCabin" accept="image/*" multiple><br>
+      
+      <label for="SelectedCelling">Selected Celling:</label>
+      <input type="file" id="SelectedCelling" name="SelectedCelling" accept="image/*" multiple><br>
+      
+      <label for="remainingPhotos">Remaining Pics:</label>
+      <input type="file" id="remainingPhotos" name="remainingPhotos" accept="image/*" multiple><br>
 
-    <label for="pitPhotos">PIT:</label>
-    <input type="file" id="pitPhotos" name="pitPhotos" accept="image/*"><br>
-
-    <label for="headroomPhotos">Headroom:</label>
-    <input type="file" id="headroomPhotos" name="headroomPhotos" accept="image/*"><br>
-
-    <label for="SelectedCOPLOP">Selected COP/LOP:</label>
-    <input type="file" id="SelectedCOPLOP" name="SelectedCOPLOP" accept="image/*"><br>
-
-    <label for="SelectedCabin">Selected Cabin:</label>
-    <input type="file" id="SelectedCabin" name="SelectedCabin" accept="image/*"><br>
-
-    <label for="remainingPhotos">Remaining Pics:</label>
-    <input type="file" id="remainingPhotos" name="remainingPhotos" accept="image/*"><br>
 
      <button type="button" onclick="downloadPDF()">Download as PDF</button>
   </div>
